@@ -1,0 +1,33 @@
+erDiagram
+    PRESTATARIO ||--o{ PRESTAMO : "realiza"
+    PRESTAMO ||--|{ DETALLE_PRESTAMO : "contiene"
+    EQUIPO ||--o{ DETALLE_PRESTAMO : "incluye"
+
+    PRESTATARIO {
+        int id_prestatario PK
+        string nombre
+        string correo UK
+    }
+
+    EQUIPO {
+        int id_equipo PK
+        string codigo_equipo UK
+        string nombre
+        string categoria
+    }
+
+    PRESTAMO {
+        int id_prestamo PK
+        string numero_prestamo UK
+        int id_prestatario FK
+        date fecha_prestamo
+        date fecha_devolucion_prevista
+        string estado
+    }
+
+    DETALLE_PRESTAMO {
+        int id_prestamo PK, FK
+        int id_equipo PK, FK
+        int cantidad
+        date fecha_devolucion_real
+    }
