@@ -1,15 +1,5 @@
-services:
-  db:
-    image: postgres:16-alpine
-    container_name: postgres_prestamos
-    restart: always
-    env_file:
-      - .env
-    ports:
-      - "${POSTGRES_PORT:-5432}:5432"
-    volumes:
-      - postgres_prestamos_data:/var/lib/postgresql/data
+def mensaje():
+    nombre = "Yoel Monzón"
+    print(f"Pendejo {nombre}")
 
-volumes:
-  postgres_prestamos_data:
-    name: postgres_prestamos_data
+mensaje()
