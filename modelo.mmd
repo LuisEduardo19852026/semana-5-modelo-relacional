@@ -1,33 +1,43 @@
-erDiagram
-    PRESTATARIO ||--o{ PRESTAMO : "realiza"
-    PRESTAMO ||--|{ DETALLE_PRESTAMO : "contiene"
-    EQUIPO ||--o{ DETALLE_PRESTAMO : "incluye"
+@startuml
+' Configuración de estilo similar a la imagen
+skinparam linetype ortho
+skinparam monochrome false
+skinparam packageStyle rectangle
+skinparam shadowing false
 
-    PRESTATARIO {
-        int id_prestatario PK
-        string nombre
-        string correo UK
-    }
+entity "PRESTATARIO" as prestatario {
+  int : id_prestatario [PK]
+  --
+  string : nombre
+  string : correo [UK]
+}
 
-    EQUIPO {
-        int id_equipo PK
-        string codigo_equipo UK
-        string nombre
-        string categoria
-    }
+entity "PRESTAMO" as prestamo {
+  int : id_prestamo [PK]
+  --
+  string : numero_prestamo [UK]
+  int : id_prestatario [FK]
+  date : fecha_prestamo
+  date : fecha_devencion_prevista
+  string : estado
+}
 
-    PRESTAMO {
-        int id_prestamo PK
-        string numero_prestamo UK
-        int id_prestatario FK
-        date fecha_prestamo
-        date fecha_devolucion_prevista
-        string estado
-    }
+entity "EQUIPO" as equipo {
+  int : id_equipo [PK]
+  --
+  string : codigo_equipo [UK]
+  string : nombre
+  string : categoria
+}
 
-    DETALLE_PRESTAMO {
-        int id_prestamo PK, FK
-        int id_equipo PK, FK
-        int cantidad
-        date fecha_devolucion_real
-    }
+entity "DETALLE_PRESTAMO" as detalle {
+  int : id_prestamo [PK, FK]
+  int : id_equipo [PK, FK]
+}
+
+' Relaciones con sus nombres de etiqueta
+prestatario ||--o{ prestamo : "realiza"
+prestamo ||--|{ detalle : "contiene"
+equipo ||--o{ detalle : "incluye"
+
+@enduml
