@@ -13,7 +13,7 @@ Get-Content schema.sql | docker exec -i postgres_prestamos psql -U app_user -d p
 Get-Content seed.sql | docker exec -i postgres_prestamos psql -U app_user -d prestamos_db
 Get-Content validation.sql | docker exec -i postgres_prestamos psql -U app_user -d prestamos_db
 
-Comprobar la base de datos y usuario activos:
+Comprobar la base de datos y usuario activos del pendejo:
 docker exec -i postgres_prestamos psql -U app_user -d prestamos_db -c "SELECT current_database(), current_user;"
 ## Decisiones Importantes del Modelo
 * **Normalización (3FN):** Se dividió la tabla plana original en 4 entidades (`prestatario`, `equipo`, `prestamo`, `detalle_prestamo`) para evitar anomalías de inserción, actualización y eliminación.
