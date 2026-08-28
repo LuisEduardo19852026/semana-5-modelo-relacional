@@ -1,5 +1,1 @@
-def mensaje():
-    nombre = "Yoel Monzón"
-    print(f"Pendejo {nombre}")
 
-mensaje()
