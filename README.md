@@ -1,7 +1,7 @@
 Sistema de Gestión de Préstamos Audiovisuales - Semana 5
 Solución relacional normalizada en 3FN para la gestión de préstamos de equipo audiovisual con PostgreSQL y Docker Compose.
 
-Guía de Despliegue
+Guía de Despliegue de mis nalgas de pene
 Generar archivo de configuración local:
 cp .env.example .env
 
